@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h2> Database Room</h2>
+
+<ul>
+    <li>
+        <a asp-page="/CreateClass">
+            Create Classroom
+        </a>
+    </li>
+    <li>
+
+        <a asp-page="Display">
+            Show all
+        </a>
+    </li>
+    <li>
+
+        <a asp-route-type="DSC" asp-page="/OtherDisplays">
+            Order By Asc
+        </a>
+    </li>
+    <li>
+
+        <a asp-route-type="ASC" asp-page="/OtherDisplays">
+            Order By Dsc
+        </a>
+    </li>
+
+
+</ul>
+
+
+@if (Model.Classes.Count() > 0)
+{
+    foreach (var item in Model.Classes)
+    {
+        <div class="div1">
+            <hr>
+            <p>Class name: @item.ClassID</p>
+            <span>
+                <a asp-route-id="@item.Id" asp-page-handler="DeleteClass">Delete</a>
+                <a asp-route-id="@item.ClassID" asp-page="/Create">Add Student</a>
+                <a asp-route-className="@item.ClassID" asp-page-handler="SeeStudent">See Student</a>
+            </span>
+            <hr>
+        </div>
+    }
+}
+else
+{
+    <p> No Result found</p>
+
+}

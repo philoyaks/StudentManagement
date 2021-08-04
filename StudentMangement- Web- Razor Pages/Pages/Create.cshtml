@@ -1,0 +1,60 @@
+﻿@page
+
+@model CreateModel
+
+
+
+@{
+    ViewData["Title"] = "Create";
+    var x = TempData["ClassName"];
+}
+
+<h1>Create</h1>
+
+<h4>StudentDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-page-handler="OnPost" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student.ClassName" value="@TempData["ClassName"] " />
+            <div class="form-group">
+                <label asp-for="Student.StudentName" class="control-label"></label>
+                <input asp-for="Student.StudentName" class="form-control" />
+                <span asp-validation-for="Student.StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentID" class="control-label"></label>
+                <input asp-for="Student.StudentID" class="form-control" />
+                <span asp-validation-for="Student.StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StdAddress" class="control-label"></label>
+                <input asp-for="Student.StdAddress" class="form-control" />
+                <span asp-validation-for="Student.StdAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.DateCreated" class="control-label"></label>
+                <input asp-for="Student.DateCreated" class="form-control" />
+                <span asp-validation-for="Student.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentBirthday" class="control-label"></label>
+                <input asp-for="Student.StudentBirthday" class="form-control" />
+                <span asp-validation-for="Student.StudentBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,81 @@
+﻿@page "{type}"
+@model OtherDisplaysModel
+
+@{
+    ViewData["Title"] = "OtherDeplays";
+
+    var x = ViewData["type"];
+}
+
+
+
+@if ((String)x == "ASC")
+{
+    <h1>Order Of Student Name in Ascending Order</h1>
+
+}
+@if ((String)x == "DSC")
+{
+    <h1>Order Of Student Name in Decending Order</h1>
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).StudentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).StdAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students.ElementAt(0).StudentBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Students.Count(); i++)
+        {
+            <tr>
+                <td>
+                    @(i+1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).StdAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Students.ElementAt(i).StudentBirthday)
+                </td>
+                <td>
+                    <a asp-page="/Edit" asp-route-id="@Model.Students.ElementAt(i).Id">Edit</a> |
+                    <a asp-page="/Delete" asp-route-id="@Model.Students.ElementAt(i).Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
