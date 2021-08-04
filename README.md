@@ -9,6 +9,8 @@ This project contains 4 different folder, which basically implements the same fe
 
 It was implemented using two different approach, The MVC dotnet architecture and Razor pages:
 Made use of SQL , as its database for implementation.
+![4315165d511b42cef6895f620f24c222f0a000f9](https://user-images.githubusercontent.com/42491873/128268008-f7819bbf-eed4-4321-9318-20b16ab51d99.gif)
+
 
 
 **2. Mobile App**
@@ -26,6 +28,7 @@ Made use of SQL , as its database for implementation.
   - Asp.net core(C#)
   - Hosted it on Heroku
   - played around Mongo Db as it's Database
-  - I didn't put my Endpoints so it wont be populated but here is a swagger Ui for the Api, You can clone the repo to learn more and see how it is being implemented
+  - I didn't put my Endpoints so it wont be populated but here is a swagger Ui for the Api, You can clone the repo to learn more and see how it is being implemented,Here is a gif on the project tested before hosting on heroku
   
+![4afa0b949cd740b802edab0f99aefb03753a4479](https://user-images.githubusercontent.com/42491873/128266845-6979d350-43ca-4c77-b051-72b6da01028a.gif)
 
