@@ -1,0 +1,117 @@
+﻿@page
+@model DisplayModel
+
+@{
+    ViewData["Title"] = "Display";
+    int i = 1;
+}
+
+
+
+@if (TempData["ClassName"] != null)
+{
+    <h1>
+        Class Name:  @TempData["ClassName"]
+    </h1>
+    <br />
+    <p>
+        <a asp-route-id="@TempData["ClassName"]" asp-page="/Create">Add Student</a>
+        <a asp-page="/Index">Back To Homepage</a>
+    </p>
+}
+else
+{
+    <h1>
+        Display for All students
+    </h1>
+    <br />
+    <p>
+        <a asp-page="/Index">Back To Homepage</a>
+    </p>
+
+    <form asp-page-handler="SearchStudentDetails" method="post">
+        <p>
+            Search Student Name: <input type="text" name="SearchString" />
+            <input type="submit" value="Submit" />
+        </p>
+    </form>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].Id)
+            </th>
+            @if (TempData["ClassName"] == null)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Students[0].ClassName)
+                </th>
+
+            }
+
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].StudentName)
+            </th>
+            <th>
+                dbStudentID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].StdAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Students[0].StudentBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Students)
+        {
+            <tr>
+                <td>
+                    @i
+                </td>
+                @if (TempData["ClassName"] == null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassName)
+                    </td>
+
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StdAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentBirthday)
+                </td>
+                <td>
+                    <a asp-page="/Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page-handler="DeleteStudentDetails" asp-route-id="@item.Id" asp-route-classname="@item.ClassName">Delete</a>
+
+                </td>
+            </tr>
+
+            i = i + 1;
+
+
+
+
+        }
+    </tbody>
+</table>
