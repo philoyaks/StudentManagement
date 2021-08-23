@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:studentmanagement_app/constants.dart';
-
-import 'package:studentmanagement_app/screens/startUpScreen.dart';
+import 'package:studentmanagement_app/screens/Auth_Screens/loginScreen.dart';
+import 'package:studentmanagement_app/screens/Auth_Screens/signUpScreen.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: customThemData,
       debugShowCheckedModeBanner: false,
-      home: StartUpScreen(),
+      home: SignUpScreen(),
     );
   }
 }

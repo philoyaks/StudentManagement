@@ -4,7 +4,7 @@ import 'package:studentmanagement_app/repository/api.dart';
 import 'package:studentmanagement_app/screens/showAllStudent.dart';
 
 class PopUpMenu extends StatelessWidget {
-  Api api = Api();
+  final Api api = Api();
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(

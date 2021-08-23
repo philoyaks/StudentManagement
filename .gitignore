@@ -2,3 +2,16 @@
 *.json
 
 appsettings.json
+
+# StudentMangement- Web- Razor Pages/bin
+# StudentMangement- Web- Razor Pages/obj
+# StudentManagementApi- For Mobile Consumption/obj
+# StudentManagementApi- For Mobile Consumption/bin
+# StudentManagementApi- For Mobile Consumption/.vs
+# StudentMangement- Web- Razor Pages/.vs
+# StudentManagementApi- For Mobile Consumption/obj
+# StudentManagementApi- For Mobile Consumption/obj
+bin/
+obj/
+.vs/
+StudentManagementApi- For Mobile Consumption/obj/project.nuget.cache
