@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentManagementApi.Data;
 using StudentManagementApi.Models;
@@ -11,6 +12,7 @@ namespace StudentManagementApi.Controllers
 {
 
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class ManagementController : ControllerBase
     {
@@ -105,7 +107,7 @@ namespace StudentManagementApi.Controllers
         [HttpGet("search/{searchName}")]
         public IActionResult SearchStudent(string searchName)
         {
-            var result = _repo.Search(searchName);
+            var result = _repo.SearchForStudents(searchName);
 
 
             return Ok(result);

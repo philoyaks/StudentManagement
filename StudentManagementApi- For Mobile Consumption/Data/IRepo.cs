@@ -8,6 +8,12 @@ namespace StudentManagementApi.Data
 {
     public interface IRepo
     {
+        /// <summary>
+        /// Class Creation, Student details, and creating users are all in this files
+        /// </summary>
+        /// <param name="cn"></param>
+        /// <returns></returns>
+
         //Create DataBase
         Task CreateNewClass(ClassName cn);
         Task CreateStudentDetails(StudentDetails sd);
@@ -39,8 +45,16 @@ namespace StudentManagementApi.Data
         IEnumerable<StudentDetails> OrderBYASC();
 
         //Order Students names in Decensding order
-        IEnumerable<StudentDetails> Search(String searchString);
+        IEnumerable<StudentDetails> SearchForStudents(String searchString);
 
+
+        ///Create Users Class
+        Task<Users> CreateUser(Users user);
+        Task<Users> GetUser(String email, String password);
+        Task<List<Users>> GetAllUsers();
+
+        /// End of Documentation
+        ///
 
     }
 }
